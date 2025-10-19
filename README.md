@@ -1,2 +1,5 @@
-# Sr_Bracat_-_o_P-sitron
-Projeto de física computacional que visa criar uma plataforma interativa de visualização de resultados de mecânica quântica.
+# Sr Bracat & o Pósitron
+
+Você é apenas um pósitron vivendo tranquilamente com sua família e amigos em um mundo repleto de partículas iguais a você. Porém, de repende, você é transportado para um mundo repleto das piores ameaças possíveis: elétrons! Para achar o caminho de volta para sua casa e chegar seguro, sem ser aniquilado, você precisa resolver uma série de problemas quânticos. Mas não se assuste! Você contará com a ajuda do Sr. Bracat, um gato cientista que sabe tudo sobre mecânica quântica. Na sua jornada, você encontrará poços de potencial, aparatos de Stern-Gerlach, um "cara ou coroa" quântico e muitas outras aventuras físicas.
+
+Depois dessa pequena introdução, venho me explicar. Quero fazer um conjunto de simulações e resoluções numéricas interativas sobre fenômenos e conceitos de mecânica quântica. Quero que o usuário seja capaz de alterar os parâmetros numéricos, como o comprimento do poço infinito ou a altura do poço finito, para que consiga desenvolver intuição acerca desse tópico tão distante da nossa ideia de mundo macroscópico. Tudo isso será integrado por meio do ambiente descrito no primeiro parágrafo, de forma que o programa final vai ter um formato parecido com um jogo.
