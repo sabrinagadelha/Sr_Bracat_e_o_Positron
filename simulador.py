@@ -33,12 +33,10 @@ def evoluc_temp_pç_finito(frame, L, n1, n2):
     ax.set_ylim(0, max_amplitude_square * 1.1) 
     ax.set_xlim(0, L)
     x = np.linspace(0,L,200)
-    
-    # CORREÇÃO 1: Usar n1 e n2 para ter superposição real
+
     wave1 = np.sqrt(2/L)*np.sin(n1*np.pi*x/L)
     wave2 = np.sqrt(2/L)*np.sin(n2*np.pi*x/L) 
     
-    # Para clareza, usando a fórmula padrão (matematicamente igual à sua, mas mais legível)
     e1 = (np.pi*h_cortado/L)**2 * n1**2 / (2*massa_eletron)
     e2 = (np.pi*h_cortado/L)**2 * n2**2 / (2*massa_eletron)
     
@@ -48,11 +46,9 @@ def evoluc_temp_pç_finito(frame, L, n1, n2):
     t = times[frame]
     t *= 300
     
-    # Superposição complexa
     psi = (c *wave1* np.exp(-1j*e1*t/h_cortado) + 
            c *wave2* np.exp(-1j*e2*t/h_cortado))
     
-    # Densidade de Probabilidade (módulo ao quadrado)
     prob_t = (np.abs(psi))**2 
 
     delta_x = x[1] - x[0]
@@ -74,13 +70,12 @@ def evoluc_temp_pç_finito(frame, L, n1, n2):
     #plt.pause(0.00001)
     ax.clear()
 
-    # Deve retornar uma tupla de artistas (line,)
 
 #ani = FuncAnimation(fig, evoluc_temp_pç_finito, frames=len(times), interval=50, blit=True)
-
-# CORREÇÃO CRÍTICA: Salve antes de fechar a figura!
 #ani.save("animac_teste.gif", writer='pillow', fps=20, dpi=100) # Mudei fps para 20
 
+
+print("-----------------------------------------------------------------")
 print('Vamos inicar a simulação de poço quadrado infinito! Para isso, vamos começar estudando os efeitos da escolha do número quântico')
 print('Veja como se comportam a função de onda e a densidade de probabilidade para um elétron confinado no estado fundamental')
 print('Obs: para visualizar imagens estáticas, acesse o arquivo imagem.png')
@@ -105,7 +100,7 @@ print('Agora vamos explorar um pouco a ação da mudança no comprimento do poç
 poço_infinito(1,2)
 flag='n'
 flag=input('Para continuar, digite "s": ')
-print('Subindo L para 10, a relação entre a função de onda e a densidade de probabilidade muda. Isso acontece porque a densidade de probabilidade é normalizada: a probabilidade de encontrar a partícula em algum lugar do espaço é sempre igual a 1. Assim, como a base da forma de onda aumenta com L aumentando, a amplitude deve diminuir, para manter a integral igual a 0')
+print('Subindo L para 10, a relação entre a função de onda e a densidade de probabilidade muda. Isso acontece porque a densidade de probabilidade é normalizada: a probabilidade de encontrar a partícula em algum lugar do espaço é sempre igual a 1. Assim, como a base da forma de onda aumenta com L aumentando, a amplitude deve diminuir, para manter a integral igual a 1')
 poço_infinito(10,2)
 flag = input('Para continuar, digite "s": ')
 poço_infinito(100,2)
@@ -144,7 +139,7 @@ n2 = int(n2)
 while(n1!=0):
     for i in range(120):
         evoluc_temp_pç_finito(i, 1, n1, n2)
-    plt.close(fig) # Agora é seguro fechar
+    plt.close(fig) 
     file_list = sorted(glob.glob('frames_gif/*.png'))
     if not file_list: 
         print('nenhum arquivo de imagem encontrado')
